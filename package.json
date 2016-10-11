@@ -61,7 +61,7 @@
     "pug": "^2.0.0-beta6",
     "request": "^2.74.0",
     "rutjs": "^0.1.1",
-    "string": "^3.3.1",
+    "string": "^3.3.2",
     "superheroes": "^1.0.0",
     "uuid": "^2.0.3",
     "yelp": "^1.0.1"
