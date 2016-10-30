@@ -6,7 +6,7 @@
   "description": "Animal salvaje nivel 20",
   "dependencies": {
     "cheerio": "^0.22.0",
-    "cloudscraper": "^1.4.0",
+    "cloudscraper": "^1.4.1",
     "express": "^3.21.2",
     "hubot": "^2.19.0",
     "hubot-anime-dl": "^2.1.0",
