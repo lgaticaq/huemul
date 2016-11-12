@@ -53,7 +53,7 @@
     "hubot-youtube": "^1.0.2",
     "jquery": "^3.1.1",
     "jsdom": "^9.8.3",
-    "mathjs": "^3.6.0",
+    "mathjs": "^3.7.0",
     "moment": "^2.15.2",
     "moment-business-days": "0.0.10",
     "moment-countdown": "0.0.3",
