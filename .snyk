@@ -1,0 +1,32 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.7.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - hubot > express > connect > express-session > debug:
+        patched: '2017-09-27T03:54:10.920Z'
+    - hubot > express > debug:
+        patched: '2017-09-27T03:54:10.920Z'
+    - hubot > express > connect > body-parser > debug:
+        patched: '2017-09-27T03:54:10.920Z'
+    - hubot > express > connect > compression > debug:
+        patched: '2017-09-27T03:54:10.920Z'
+    - hubot > express > connect > connect-timeout > debug:
+        patched: '2017-09-27T03:54:10.920Z'
+    - hubot > express > connect > debug:
+        patched: '2017-09-27T03:54:10.920Z'
+    - hubot > express > send > debug:
+        patched: '2017-09-27T03:54:10.920Z'
+    - hubot > express > connect > finalhandler > debug:
+        patched: '2017-09-27T03:54:10.920Z'
+    - hubot > express > connect > morgan > debug:
+        patched: '2017-09-27T03:54:10.920Z'
+    - hubot > express > connect > serve-index > debug:
+        patched: '2017-09-27T03:54:10.920Z'
+    - hubot > express > connect > serve-static > send > debug:
+        patched: '2017-09-27T03:54:10.920Z'
+    - phantom > phantomjs-prebuilt > extract-zip > debug:
+        patched: '2017-09-27T03:54:10.920Z'
+    - hubot > express > connect > method-override > debug:
+        patched: '2017-09-27T03:54:10.920Z'
