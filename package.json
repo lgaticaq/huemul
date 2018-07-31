@@ -7,10 +7,15 @@
     "start": "bin/hubot -a slack",
     "dev": "bin/hubot",
     "test": "ava test",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"]
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "engines": {
     "node": ">=8"
@@ -19,7 +24,9 @@
     "type": "git",
     "url": "git://github.com/devschile/huemul.git"
   },
-  "keywords": ["hubot"],
+  "keywords": [
+    "hubot"
+  ],
   "author": "Huemul",
   "private": true,
   "bugs": {
@@ -99,7 +106,8 @@
     "superheroes": "1.0.0",
     "uuid": "3.2.1",
     "whilst": "1.0.2",
-    "yelp": "1.0.2"
+    "yelp": "1.0.2",
+    "snyk": "^1.89.1"
   },
   "devDependencies": {
     "ava": "0.25.0",
@@ -109,5 +117,6 @@
     "lint-staged": "7.1.2",
     "nock": "9.2.6",
     "prettier": "1.12.1"
-  }
+  },
+  "snyk": true
 }
