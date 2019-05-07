@@ -134,15 +134,6 @@ module.exports = robot => {
     })
   }
 
-  const sendMessage = (message, channel) => {
-    if (robot.adapter.constructor.name === 'SlackBot') {
-      const options = { unfurl_links: false, as_user: true }
-      robot.adapter.client.web.chat.postMessage(channel, message, options)
-    } else {
-      robot.messageRoom(channel, message)
-    }
-  }
-
   const onError = (err, msg, text) => {
     if (err === 404) {
       msg.send(text)
@@ -157,21 +148,19 @@ module.exports = robot => {
     const full = msg.match[1]
 
     if (args === 'help') {
-      return sendMessage(commands.join('\n'), msg.message.room)
+      return robot.emit('slack.unfurl_links', (msg, commands.join('\n')))
     }
     if (args === 'daily') {
       return getDailyId()
         .then(getPrice)
         .then(data => {
-          sendMessage(
-            `¡Lorea la oferta del día!: *${data.name}*, a sólo *${numberToCLPFormater(
-              data.final,
-              'CLP $'
-            )}*. Valor original *${numberToCLPFormater(data.initial, 'CLP $')}*, eso es un -*${data.discount}*%! <${
-              data.uri
-            }|Ver más>`,
-            msg.message.room
-          )
+          const message = `¡Lorea la oferta del día!: *${data.name}*, a sólo *${numberToCLPFormater(
+            data.final,
+            'CLP $'
+          )}*. Valor original *${numberToCLPFormater(data.initial, 'CLP $')}*, eso es un -*${data.discount}*%! <${
+            data.uri
+          }|Ver más>`
+          robot.emit('slack.unfurl_links', (msg, message))
         })
         .catch(err => onError(err, msg, 'No se encontró la oferta del día, revisaste los especiales?'))
     }

@@ -60,12 +60,7 @@ module.exports = function(robot) {
         if (resultados.length > limiteResultados) {
           text += `Más resultados en: <${url}|getonbrd>\n`
         }
-        if (robot.adapter.constructor.name === 'SlackBot') {
-          let options = { unfurl_links: false, as_user: true }
-          robot.adapter.client.web.chat.postMessage(msg.message.room, text, options)
-        } else {
-          msg.send(text)
-        }
+        robot.emit('slack.unfurl_links', (msg, text))
       } else {
         msg.send(`No se han encontrado resultados para *${busqueda}*`)
       }

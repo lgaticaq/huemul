@@ -39,14 +39,7 @@ module.exports = function(robot) {
       });
 
       if (results.length > 0) {
-        var text = results.join('\n');
-
-        if (robot.adapter.constructor.name === 'SlackBot') {
-          var options = {unfurl_links: false, as_user: true};
-          robot.adapter.client.web.chat.postMessage(msg.message.room, text, options);
-        } else {
-          msg.send(text);
-        }
+        robot.emit('slack.unfurl_links', (msg, results.join('\n')))
       } else {
         msg.send('No hay de lo que buscas, habla con :pinceleart:');
       }

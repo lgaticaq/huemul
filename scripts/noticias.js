@@ -18,14 +18,6 @@ const cheerio = require('cheerio')
 
 module.exports = robot =>
   robot.respond(/noticias (.*)/i, msg => {
-    const send = text => {
-      if (robot.adapter.constructor.name === 'SlackBot') {
-        const options = { unfurl_links: false, as_user: true }
-        robot.adapter.client.web.chat.postMessage(msg.message.room, text, options)
-      } else {
-        msg.send(text)
-      }
-    }
     const q = msg.match[1]
     robot
       .http('http://www.ahoranoticias.cl/buscador/')
@@ -56,9 +48,9 @@ module.exports = robot =>
         const head = ':huemul: *News*'
 
         if (news) {
-          send(`${head}\n${news}\n<http://www.ahoranoticias.cl/buscador/|Sigue buscando en ahoranoticias.cl>`)
+          robot.emit('slack.unfurl_links', (msg, `${head}\n${news}\n<http://www.ahoranoticias.cl/buscador/|Sigue buscando en ahoranoticias.cl>`))
         } else {
-          send(`${head}\nNo se han encontrado noticias sobre *${q}*.`)
+          robot.emit('slack.unfurl_links', (msg, `${head}\nNo se han encontrado noticias sobre *${q}*.`))
         }
       }
     })

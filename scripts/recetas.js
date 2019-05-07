@@ -39,13 +39,7 @@ module.exports = function(robot) {
           var limiteResultados = (resultados.length > 4) ? 3 : resultados.length;
           var recetas = resultados.slice(0, limiteResultados).map((v, i) => `${i + 1}: ${v}`).join('\n');
           var more = resultados.length > limiteResultados ? `\n<${url}|Ver más resultados>` : '';
-          var text = `${resNum}\n${recetas}${more}`;
-          if (robot.adapter.constructor.name === 'SlackBot') {
-            var options = {unfurl_links: false, as_user: true};
-            robot.adapter.client.web.chat.postMessage(msg.message.room, text, options);
-          } else {
-            msg.send(text);
-          }
+          robot.emit('slack.unfurl_links', (msg, `${resNum}\n${recetas}${more}`))
         } else {
           msg.send('No se han encontrado resultados sobre '+ busqueda + '. Intenta con otro ingrediente.');
         }
