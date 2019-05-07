@@ -15,13 +15,6 @@
 
 module.exports = robot => {
   robot.respond(/kickstarter\s*(.*)?$/i, msg => {
-    const send = options => {
-      if (['SlackBot', 'Room'].includes(robot.adapter.constructor.name)) {
-        robot.adapter.client.web.chat.postMessage(msg.message.room, null, options)
-      } else {
-        msg.send(options.attachments[0].fallback)
-      }
-    }
     const term = msg.match[1] ? msg.match[1].toLowerCase() : null
     const options = {
       as_user: false,
@@ -36,12 +29,12 @@ module.exports = robot => {
       options.attachments[0].fallback = help
       options.attachments[0].text = help
       options.attachments[0].color = '#004085'
-      return send(options)
+      return robot.emit('slack.attachment', (msg, options))
     }
 
     options.attachments[0].fallback = `Cargando los proyectos de *${term}* más populares en Kickstarter :loading:`
     options.attachments[0].title = `Cargando los proyectos de *${term}* más populares en Kickstarter :loading:`
-    send(options)
+    robot.emit('slack.attachment', (msg, options))
 
     const popularTechProjects = `https://www.kickstarter.com/discover/popular?term=${term}&format=json&page=1&sort=magic`
     robot.http(popularTechProjects).get()((err, res, body) => {
@@ -52,7 +45,7 @@ module.exports = robot => {
         options.attachments[0].title = `Resultado de proyectos para ${term}`
         options.attachments[0].text = defaultError
         options.attachments[0].color = 'danger'
-        return send(options)
+        return robot.emit('slack.attachment', (msg, options))
       }
 
       try {
@@ -62,7 +55,7 @@ module.exports = robot => {
           options.attachments[0].fallback = help
           options.attachments[0].text = help
           options.attachments[0].color = '#004085'
-          return send(options)
+          return robot.emit('slack.attachment', (msg, options))
         }
         const projects = jsonData.projects.map((item, key) => ({
           name: item.name,
@@ -98,7 +91,7 @@ module.exports = robot => {
                 short: false
               }
             ]
-            send(options)
+            robot.emit('slack.attachment', (msg, options))
           }
         })
         if (projects.length > 3) {
@@ -106,7 +99,7 @@ module.exports = robot => {
           options.attachments[0].title = `Ver más proyectos de ${term}`
           options.attachments[0].title_link = moreUrl
           options.attachments[0].fallback = `Ver más en: ${moreUrl}`
-          send(options)
+          robot.emit('slack.attachment', (msg, options))
         }
       } catch (err) {
         robot.emit('error', err, res, 'kickstarter')
@@ -114,7 +107,7 @@ module.exports = robot => {
         options.attachments[0].title = `Resultado de proyectos para ${term}`
         options.attachments[0].text = defaultError
         options.attachments[0].color = 'danger'
-        send(options)
+        robot.emit('slack.attachment', (msg, options))
       }
     })
   })

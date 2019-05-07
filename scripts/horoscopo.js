@@ -32,13 +32,6 @@ module.exports = function(robot) {
   ]
   const pattern = new RegExp(`hor[oó]scopo(\\s+(${signs.join('|')}))?$`, 'i')
   robot.respond(pattern, function(res) {
-    const send = options => {
-      if (['SlackBot', 'Room'].includes(robot.adapter.constructor.name)) {
-        robot.adapter.client.web.chat.postMessage(res.message.room, null, options)
-      } else {
-        res.send(options.attachments[0].fallback)
-      }
-    }
     const options = {
       as_user: false,
       link_names: 1,
@@ -54,7 +47,7 @@ module.exports = function(robot) {
       options.attachments[0].fallback = help
       options.attachments[0].text = help
       options.attachments[0].color = '#004085'
-      return send(options)
+      return robot.emit('slack.attachment', (res, options))
     }
     robot.http(url).get()(function(err, response, body) {
       if (err || response.statusCode !== 200) {
@@ -63,7 +56,7 @@ module.exports = function(robot) {
         options.attachments[0].title = `Horóscopo para ${signo}`
         options.attachments[0].text = defaultError
         options.attachments[0].color = 'danger'
-        return send(options)
+        return robot.emit('slack.attachment', (res, options))
       }
       try {
         const data = JSON.parse(body)
@@ -100,14 +93,14 @@ Horóscopo de ${data.titulo} para ${nombre}:
             short: true
           }
         ]
-        send(options)
+        robot.emit('slack.attachment', (res, options))
       } catch (err) {
         robot.emit('error', err, res, 'horoscopo')
         options.attachments[0].fallback = defaultError
         options.attachments[0].title = `Horóscopo para ${signo}`
         options.attachments[0].text = defaultError
         options.attachments[0].color = 'danger'
-        send(options)
+        robot.emit('slack.attachment', (res, options))
       }
     })
   })

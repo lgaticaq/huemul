@@ -19,14 +19,6 @@ const { numberToCLPFormater } = require('numbertoclpformater')
 
 module.exports = robot => {
   robot.respond(/bip (\d{8})$/i, async res => {
-    const send = options => {
-      if (['SlackBot', 'Room'].includes(robot.adapter.constructor.name)) {
-        robot.adapter.client.web.chat.postMessage(res.message.room, null, options)
-      } else {
-        res.send(options.attachments[0].fallback)
-      }
-    }
-
     const options = {
       as_user: false,
       link_names: 1,
@@ -42,7 +34,6 @@ module.exports = robot => {
         options.attachments[0].fallback = status.message
         options.attachments[0].text = status.message
         options.attachments[0].color = 'danger'
-        send(options)
       } else {
         const balance = numberToCLPFormater(status.balance)
         const date = moment(status.date).format('DD/MM/YYYY')
@@ -72,12 +63,12 @@ module.exports = robot => {
           }
         ]
       }
-      send(options)
+      robot.emit('slack.attachment', (res, options))
     } catch (err) {
       options.attachments[0].fallback = err.message
       options.attachments[0].text = err.message
       options.attachments[0].color = 'danger'
-      send(options)
+      robot.emit('slack.attachment', (res, options))
     }
   })
 }

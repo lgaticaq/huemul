@@ -14,25 +14,6 @@ const correos = require('correos-chile')
 
 module.exports = robot => {
   robot.respond(/correos (.*)/i, async res => {
-    const send = options => {
-      if (['SlackBot', 'Room'].includes(robot.adapter.constructor.name)) {
-        robot.adapter.client.web.chat.postMessage(res.message.room, null, options)
-      } else {
-        res.send(options.attachments[0].fallback)
-      }
-    }
-    const sendError = (options, message) => {
-      if (message) {
-        options.attachments[0].fallback =
-          message +
-          '. Solo aparecerán los estados de los envíos que ya ingresaron a Chile y fueron recepcionados por la empresa.'
-      } else {
-        options.attachments[0].fallback = 'Búsqueda sin resultados'
-      }
-      options.attachments[0].text = options.attachments[0].fallback
-      options.attachments[0].color = 'danger'
-      send(options)
-    }
     const options = {
       as_user: false,
       link_names: 1,
@@ -87,10 +68,13 @@ module.exports = robot => {
           short: true
         }
       ]
-      send(options)
+      robot.emit('slack.attachment', (res, options))
     } catch (err) {
       robot.emit('error', err, res, 'correos')
-      sendError(options)
+      options.attachments[0].fallback = 'Búsqueda sin resultados'
+      options.attachments[0].text = options.attachments[0].fallback
+      options.attachments[0].color = 'danger'
+      robot.emit('slack.attachment', (res, options))
     }
   })
 }

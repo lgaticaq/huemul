@@ -32,69 +32,56 @@ module.exports = robot => {
         return country ? new RegExp(country, 'i').test(place) : true
       })
 
-      if (robot.adapter.constructor.name === 'SlackBot') {
-        const options = {
-          as_user: false,
-          link_names: 1,
-          icon_url: 'https://www.usgs.gov/sites/all/themes/usgs_palladium/favicons/apple-touch-icon.png',
-          username: 'USGS',
-          unfurl_links: false
-        }
-        if (earthquakesFilter.length === 0) {
-          const text = `Por suerte, ningún temblor mayor a ${minMagnitude} grados en ${country || 'todo el mundo'}.`
-          options.attachments = [
+      const options = {
+        as_user: false,
+        link_names: 1,
+        icon_url: 'https://www.usgs.gov/sites/all/themes/usgs_palladium/favicons/apple-touch-icon.png',
+        username: 'USGS',
+        unfurl_links: false
+      }
+
+      if (earthquakesFilter.length === 0) {
+        const text = `Por suerte, ningún temblor mayor a ${minMagnitude} grados en ${country || 'todo el mundo'}.`
+        options.attachments = [
+          {
+            fallback: text,
+            text: text
+          }
+        ]
+        return robot.emit('slack.attachment', (res, options))
+      }
+
+      options.attachments = earthquakesFilter.slice(0, 5).map(({ properties: { place, mag, time, title, url } }) => {
+        const fallback = `${title}: \n- Lugar: ${place} \n- Magnitud: ${mag} (richter) \n- Fecha/Hora: ${new Date(
+          time
+        ).toString()} \n- Enlace: ${url}`
+        return {
+          fallback: fallback,
+          color: '#36a64f',
+          title: title,
+          title_link: url,
+          fields: [
             {
-              fallback: text,
-              text: text
+              title: 'Lugar',
+              value: place,
+              short: true
+            },
+            {
+              title: 'Magnitud',
+              value: `${mag} (richter)`,
+              short: true
+            },
+            {
+              title: 'Fecha',
+              value: new Date(time)
+                .toISOString()
+                .replace(/(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}).\d+Z/, '$1 $2 UTC'),
+              short: true
             }
           ]
-          return robot.adapter.client.web.chat.postMessage(res.message.room, null, options)
         }
-        options.attachments = earthquakesFilter.slice(0, 5).map(({ properties: { place, mag, time, title, url } }) => {
-          const fallback = `${title}: \n- Lugar: ${place} \n- Magnitud: ${mag} (richter) \n- Fecha/Hora: ${new Date(
-            time
-          ).toString()} \n- Enlace: ${url}`
-          return {
-            fallback: fallback,
-            color: '#36a64f',
-            title: title,
-            title_link: url,
-            fields: [
-              {
-                title: 'Lugar',
-                value: place,
-                short: true
-              },
-              {
-                title: 'Magnitud',
-                value: `${mag} (richter)`,
-                short: true
-              },
-              {
-                title: 'Fecha',
-                value: new Date(time)
-                  .toISOString()
-                  .replace(/(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}).\d+Z/, '$1 $2 UTC'),
-                short: true
-              }
-            ]
-          }
-        })
-        robot.adapter.client.web.chat.postMessage(res.message.room, null, options)
-      } else {
-        if (earthquakesFilter.length === 0) {
-          return res.send(`Por suerte, ningún temblor mayor a ${minMagnitude} grados en ${country || 'todo el mundo'}.`)
-        }
-        res.send(
-          earthquakesFilter
-            .slice(0, 5).map(({ properties: { place, mag, time, title, url } }) => {
-              return `${title}: \n- Lugar: ${place} \n- Magnitud: ${mag} (richter) \n- Fecha/Hora: ${new Date(
-                time
-              ).toString()} \n- Enlace: ${url}`
-            })
-            .join('\n\n')
-        )
-      }
+      })
+      robot.emit('slack.attachment', (res, options))
     })
   })
 }
