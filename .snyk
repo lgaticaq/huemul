@@ -1,0 +1,95 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  'npm:debug:20170905':
+    - hubot > express > connect > body-parser > debug:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > express-session > debug:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > finalhandler > debug:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > compression > debug:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > serve-index > debug:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > debug:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > connect-timeout > debug:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > morgan > debug:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > serve-static > send > debug:
+        patched: '2019-11-09T17:19:44.388Z'
+  'npm:hoek:20180212':
+    - hubot-slack > @slack/client > request > hawk > boom > hoek:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot-slack > @slack/client > request > hawk > hoek:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot-slack > @slack/client > request > hawk > sntp > hoek:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot-slack > @slack/client > request > hawk > cryptiles > boom > hoek:
+        patched: '2019-11-09T17:19:44.388Z'
+  SNYK-JS-LODASH-450202:
+    - hubot-slack > @slack/client > lodash:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot-buscandriu > buscandriu > cheerio > lodash:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot-info-rut > info-rut > cheerio > lodash:
+        patched: '2019-11-09T17:19:44.388Z'
+    - pug > pug-code-gen > constantinople > babel-types > lodash:
+        patched: '2019-11-09T17:19:44.388Z'
+    - pug > pug-filters > constantinople > babel-types > lodash:
+        patched: '2019-11-09T17:19:44.388Z'
+    - pug > pug-code-gen > pug-attrs > constantinople > babel-types > lodash:
+        patched: '2019-11-09T17:19:44.388Z'
+    - cheerio > lodash:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot-mongodb-brain > lodash:
+        patched: '2019-11-09T17:19:44.388Z'
+    - bip > cheerio > lodash:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot-mrrobot > cheerio > lodash:
+        patched: '2019-11-09T17:19:44.388Z'
+  'npm:lodash:20180130':
+    - hubot-caniuse > lodash:
+        patched: '2019-11-09T17:19:44.388Z'
+    - correos-chile > cheerio > lodash:
+        patched: '2019-11-09T17:19:44.388Z'
+  'npm:mime:20170907':
+    - hubot > express > connect > serve-static > send > mime:
+        patched: '2019-11-09T17:19:44.388Z'
+  'npm:ms:20170412':
+    - hubot > express > connect > debug > ms:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > connect-timeout > ms:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > morgan > debug > ms:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > serve-index > debug > ms:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > compression > debug > ms:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > body-parser > debug > ms:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > connect-timeout > debug > ms:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > express-session > debug > ms:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > finalhandler > debug > ms:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > serve-static > send > ms:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > serve-static > send > debug > ms:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > serve-favicon > ms:
+        patched: '2019-11-09T17:19:44.388Z'
+  'npm:negotiator:20160616':
+    - hubot > express > connect > compression > accepts > negotiator:
+        patched: '2019-11-09T17:19:44.388Z'
+    - hubot > express > connect > serve-index > accepts > negotiator:
+        patched: '2019-11-09T17:19:44.388Z'
+  'npm:tunnel-agent:20170305':
+    - hubot-slack > @slack/client > request > tunnel-agent:
+        patched: '2019-11-09T17:19:44.388Z'
