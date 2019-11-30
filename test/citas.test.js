@@ -23,7 +23,6 @@ test.beforeEach(t => {
             text: text,
             options: options
           }
-          t.end()
         }
       }
     }

@@ -18,49 +18,49 @@ test.beforeEach(t => {
 test.afterEach(t => {
   t.context.room.destroy()
 })
-test.cb('Debe entregar una imagen', t => {
+test.cb('Debe entregar una imagen con hubot alegria', t => {
   t.context.room.user.say('user', 'hubot alegria')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['user', 'hubot alegria'], ['hubot', 'http://i.imgur.com/1CVUXQE.jpg']])
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una imagen', t => {
+test.cb('Debe entregar una imagen con hubot alegría', t => {
   t.context.room.user.say('user', 'hubot alegría')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['user', 'hubot alegría'], ['hubot', 'http://i.imgur.com/1CVUXQE.jpg']])
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una imagen', t => {
+test.cb('Debe entregar una imagen con hubot alegrame', t => {
   t.context.room.user.say('user', 'hubot alegrame')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['user', 'hubot alegrame'], ['hubot', 'http://i.imgur.com/1CVUXQE.jpg']])
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una imagen', t => {
+test.cb('Debe entregar una imagen con hubot alégrame', t => {
   t.context.room.user.say('user', 'hubot alégrame')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['user', 'hubot alégrame'], ['hubot', 'http://i.imgur.com/1CVUXQE.jpg']])
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una imagen', t => {
+test.cb('Debe entregar una imagen con hubot felicidad', t => {
   t.context.room.user.say('user', 'hubot felicidad')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['user', 'hubot felicidad'], ['hubot', 'http://i.imgur.com/1CVUXQE.jpg']])
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una imagen', t => {
+test.cb('Debe entregar una imagen con hubot feliz', t => {
   t.context.room.user.say('user', 'hubot feliz')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['user', 'hubot feliz'], ['hubot', 'http://i.imgur.com/1CVUXQE.jpg']])
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una imagen', t => {
+test.cb('Debe entregar una imagen con hubot yay', t => {
   t.context.room.user.say('user', 'hubot yay')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['user', 'hubot yay'], ['hubot', 'http://i.imgur.com/1CVUXQE.jpg']])

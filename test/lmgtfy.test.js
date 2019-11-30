@@ -28,7 +28,7 @@ test.cb('Debe entregar una sugerencia', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con mension a usuario', t => {
   t.context.room.user.say('user', 'hubot lmgtfy @user como testear')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [

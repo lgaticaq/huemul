@@ -99,7 +99,7 @@ test.afterEach(t => {
   t.context.room.destroy()
 })
 
-test.cb.serial('Debe añadir karma con @ y comas después del user', t => {
+test.serial.cb('Debe añadir karma con @ y comas después del user', t => {
   t.context.room.user.say('user', '@dukuo++, cata++')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -110,7 +110,7 @@ test.cb.serial('Debe añadir karma con @ y comas después del user', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('Debe aplicar a un usuario', t => {
+test.serial.cb('Debe aplicar a un usuario', t => {
   t.context.room.user.say('user', 'jorgee-- asdf')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -120,7 +120,7 @@ test.cb.serial('Debe aplicar a un usuario', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('Debe aplicar a ambos usuarios', t => {
+test.serial.cb('Debe aplicar a ambos usuarios', t => {
   t.context.room.user.say('user', 'jorgee-- leonard++')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -131,21 +131,21 @@ test.cb.serial('Debe aplicar a ambos usuarios', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('No Debe aplicar karma', t => {
+test.serial.cb('No Debe aplicar karma a usuario inexistente', t => {
   t.context.room.user.say('user', 't++')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['user', 't++'], ['hubot', "Chaucha, no encuentro al usuario 't'."]])
     t.end()
   }, 500)
 })
-test.cb.serial('No Debe aplicar karma', t => {
+test.serial.cb('No Debe aplicar karma sin indicar usuario', t => {
   t.context.room.user.say('user', '++')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['user', '++']])
     t.end()
   }, 500)
 })
-test.cb.serial('Aplica karma sólo a 5 usuarios', t => {
+test.serial.cb('Aplica karma sólo a 5 usuarios', t => {
   t.context.room.user.say('user', 'leonardo++ jorgeepunan-- hector++ dukuo++ cata-- seis++')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -159,7 +159,7 @@ test.cb.serial('Aplica karma sólo a 5 usuarios', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('No intenta aplicar karma a URL que tengan "++" o "--"', t => {
+test.serial.cb('No intenta aplicar karma a URL que tengan "++" o "--"', t => {
   t.context.room.user.say(
     'user',
     'https://i.pinimg.com/564x/7c/23/0c/7c230c754f30d6a44ed7a4aad9025a94--feels-meme-bodybuilding.jpg'
@@ -171,7 +171,7 @@ test.cb.serial('No intenta aplicar karma a URL que tengan "++" o "--"', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('Aplica karma a usuarios y omitir url con "++" y "--"', t => {
+test.serial.cb('Aplica karma a usuarios y omitir url con "++" y "--"', t => {
   t.context.room.user.say(
     'user',
     'http://placehold.it/200x200/t=++hello leonardo++ jorgeepunan-- https://i.pinimg.com/564x/7c/23/0c/7c230c754f30d6a44ed7a4aad9025a94--meme.jpg'
@@ -188,7 +188,7 @@ test.cb.serial('Aplica karma a usuarios y omitir url con "++" y "--"', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('No Debe aplicar karma', t => {
+test.serial.cb('No Debe aplicar karma cuando el nombre coincide con otros usuarios', t => {
   t.context.room.user.say('user', 'leo++')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -198,7 +198,7 @@ test.cb.serial('No Debe aplicar karma', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('No Debe aplicar karma', t => {
+test.serial.cb('No Debe aplicar karma a si mismo', t => {
   t.context.room.user.say('leonardo', 'leonardo++', { id: 5 })
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -208,28 +208,28 @@ test.cb.serial('No Debe aplicar karma', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('No Debe aplicar karma para excepciones explícitas', t => {
+test.serial.cb('No Debe aplicar karma para excepciones explícitas', t => {
   t.context.room.user.say('user', 'c++')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['user', 'c++']])
     t.end()
   }, 500)
 })
-test.cb.serial('No Debe quitar karma para excepciones explícitas', t => {
+test.serial.cb('No Debe quitar karma para excepciones explícitas', t => {
   t.context.room.user.say('user', 'c--')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['user', 'c--']])
     t.end()
   }, 500)
 })
-test.cb.serial('Aplica karma solo si es menos a uno mismo', t => {
+test.serial.cb('Aplica karma solo si es menos a uno mismo', t => {
   t.context.room.user.say('ienc', 'ienc--', { id: 10 })
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['ienc', 'ienc--'], ['hubot', 'ienc ahora tiene -1 puntos de karma.']])
     t.end()
   }, 500)
 })
-test.cb.serial('No Debe aplicar karma', t => {
+test.serial.cb('No Debe aplicar karma en una ventana de tiempo pequeña', t => {
   t.context.room.user.say('user', 'gmq++')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'gmq++'])
@@ -237,7 +237,7 @@ test.cb.serial('No Debe aplicar karma', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('Debe mostrar url', t => {
+test.serial.cb('Debe mostrar url', t => {
   t.context.room.user.say('user', 'karma todos')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -247,7 +247,7 @@ test.cb.serial('Debe mostrar url', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('Debe mostrar puntaje y url', t => {
+test.serial.cb('Debe mostrar puntaje y url', t => {
   t.context.room.user.say('user', 'karma leonardo')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'karma leonardo'])
@@ -258,7 +258,7 @@ test.cb.serial('Debe mostrar puntaje y url', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('No debe resetar', t => {
+test.serial.cb('No debe resetar un usuario sin permisos', t => {
   t.context.room.user.say('user', 'karma reset leonardo')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -268,7 +268,7 @@ test.cb.serial('No debe resetar', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('Debe resetar', t => {
+test.serial.cb('Debe resetar a un usuario especifico', t => {
   t.context.room.user.say('hector', 'karma reset leonardo')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -278,7 +278,7 @@ test.cb.serial('Debe resetar', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('Debe resetar', t => {
+test.serial.cb('Debe resetar a todos', t => {
   t.context.room.user.say('hector', 'karma reset todos')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -288,7 +288,7 @@ test.cb.serial('Debe resetar', t => {
     t.end()
   }, 500)
 })
-test.cb.serial('No debe tirar todos los usuarios con --', t => {
+test.serial.cb('No debe tirar todos los usuarios con --', t => {
   t.context.room.user.say('hector', 'T-------T')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [['hector', 'T-------T'], ['hubot', "Chaucha, no encuentro al usuario 'T-'."]])

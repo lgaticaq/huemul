@@ -35,7 +35,7 @@ test.cb('Debe entregar un rut de empresa', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar un rut de persona', t => {
+test.cb('Debe entregar un rut de persona por defecto', t => {
   t.context.room.user.say('user', 'hubot dame un rut')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'hubot dame un rut'])

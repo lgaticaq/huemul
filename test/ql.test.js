@@ -18,7 +18,7 @@ test.beforeEach(t => {
 test.afterEach(t => {
   t.context.room.destroy()
 })
-test.cb('Debe entregar un ascii art', t => {
+test.cb('Debe entregar un ascii art con hubot ql', t => {
   t.context.room.user.say('user', 'hubot ql')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -28,7 +28,7 @@ test.cb('Debe entregar un ascii art', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar un ascii art', t => {
+test.cb('Debe entregar un ascii art con hubot rql', t => {
   t.context.room.user.say('user', 'hubot rql')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -38,7 +38,7 @@ test.cb('Debe entregar un ascii art', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar un ascii art', t => {
+test.cb('Debe entregar un ascii art con hubot ctm', t => {
   t.context.room.user.say('user', 'hubot ctm')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -48,7 +48,7 @@ test.cb('Debe entregar un ascii art', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar un ascii art', t => {
+test.cb('Debe entregar un ascii art con hubot mátate', t => {
   t.context.room.user.say('user', 'hubot mátate')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -58,7 +58,7 @@ test.cb('Debe entregar un ascii art', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar un ascii art', t => {
+test.cb('Debe entregar un ascii art con hubot matate', t => {
   t.context.room.user.say('user', 'hubot matate')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -68,7 +68,7 @@ test.cb('Debe entregar un ascii art', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar un ascii art', t => {
+test.cb('Debe entregar un ascii art con hubot culiao', t => {
   t.context.room.user.say('user', 'hubot culiao')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -78,7 +78,7 @@ test.cb('Debe entregar un ascii art', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar un ascii art', t => {
+test.cb('Debe entregar un ascii art con hubot reculiao', t => {
   t.context.room.user.say('user', 'hubot reculiao')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -88,7 +88,7 @@ test.cb('Debe entregar un ascii art', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar un ascii art', t => {
+test.cb('Debe entregar un ascii art con hubot remilculiao', t => {
   t.context.room.user.say('user', 'hubot remilculiao')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [

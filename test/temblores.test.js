@@ -18,7 +18,7 @@ test.afterEach(t => {
   t.context.room.destroy()
 })
 
-test.cb.serial('Es imposible que no hayan temblores sobre 6 en el mundo durante un mes.', t => {
+test.serial.cb('Es imposible que no hayan temblores sobre 6 en el mundo durante un mes.', t => {
   t.context.room.user.say('user', 'hubot temblores')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -28,7 +28,7 @@ test.cb.serial('Es imposible que no hayan temblores sobre 6 en el mundo durante 
     t.end()
   }, 500)
 })
-test.cb.serial('Lugar donde no hayan temblores. Nunca.', t => {
+test.serial.cb('Lugar donde no hayan temblores. Nunca.', t => {
   t.context.room.user.say('user', 'hubot temblores enunlugardondenuncatiembla')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [

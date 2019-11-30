@@ -18,7 +18,7 @@ test.beforeEach(t => {
 test.afterEach(t => {
   t.context.room.destroy()
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con hubot qué desayunar', t => {
   t.context.room.user.say('user', 'hubot qué desayunar')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'hubot qué desayunar'])
@@ -26,7 +26,7 @@ test.cb('Debe entregar una sugerencia', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con hubot que desayunar', t => {
   t.context.room.user.say('user', 'hubot que desayunar')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'hubot que desayunar'])
@@ -34,7 +34,7 @@ test.cb('Debe entregar una sugerencia', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con hubot qué almorzar', t => {
   t.context.room.user.say('user', 'hubot qué almorzar')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'hubot qué almorzar'])
@@ -42,7 +42,7 @@ test.cb('Debe entregar una sugerencia', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con hubot que almorzar', t => {
   t.context.room.user.say('user', 'hubot que almorzar')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'hubot que almorzar'])
@@ -50,7 +50,7 @@ test.cb('Debe entregar una sugerencia', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con hubot qué cenar', t => {
   t.context.room.user.say('user', 'hubot qué cenar')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'hubot qué cenar'])
@@ -58,7 +58,7 @@ test.cb('Debe entregar una sugerencia', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con hubot que cenar', t => {
   t.context.room.user.say('user', 'hubot que cenar')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'hubot que cenar'])
@@ -66,7 +66,7 @@ test.cb('Debe entregar una sugerencia', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con hubot qué tomar', t => {
   t.context.room.user.say('user', 'hubot qué tomar')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'hubot qué tomar'])
@@ -74,7 +74,7 @@ test.cb('Debe entregar una sugerencia', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con hubot que tomar', t => {
   t.context.room.user.say('user', 'hubot que tomar')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'hubot que tomar'])
@@ -82,7 +82,7 @@ test.cb('Debe entregar una sugerencia', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con qué cerveza tomar', t => {
   t.context.room.user.say('user', 'hubot qué cerveza tomar')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'hubot qué cerveza tomar'])
@@ -90,7 +90,7 @@ test.cb('Debe entregar una sugerencia', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con que cerveza tomar', t => {
   t.context.room.user.say('user', 'hubot que cerveza tomar')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages[0], ['user', 'hubot que cerveza tomar'])
@@ -98,7 +98,7 @@ test.cb('Debe entregar una sugerencia', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con hubot qué comer', t => {
   t.context.room.user.say('user', 'hubot qué comer')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
@@ -108,7 +108,7 @@ test.cb('Debe entregar una sugerencia', t => {
     t.end()
   }, 500)
 })
-test.cb('Debe entregar una sugerencia', t => {
+test.cb('Debe entregar una sugerencia con hubot que comer', t => {
   t.context.room.user.say('user', 'hubot que comer')
   setTimeout(() => {
     t.deepEqual(t.context.room.messages, [
