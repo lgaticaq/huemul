@@ -1,0 +1,26 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.14.1
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - cheerio > lodash:
+        patched: '2020-04-30T14:39:22.234Z'
+    - hubot-mongodb-brain > lodash:
+        patched: '2020-04-30T14:39:22.234Z'
+    - bip > cheerio > lodash:
+        patched: '2020-04-30T14:39:22.234Z'
+    - hubot-mrrobot > cheerio > lodash:
+        patched: '2020-04-30T14:39:22.234Z'
+    - hubot-slack > @slack/client > lodash:
+        patched: '2020-04-30T14:39:22.234Z'
+    - hubot-buscandriu > buscandriu > cheerio > lodash:
+        patched: '2020-04-30T14:39:22.234Z'
+    - hubot-info-rut > info-rut > cheerio > lodash:
+        patched: '2020-04-30T14:39:22.234Z'
+    - pug > pug-code-gen > constantinople > babel-types > lodash:
+        patched: '2020-04-30T14:39:22.234Z'
+    - pug > pug-filters > constantinople > babel-types > lodash:
+        patched: '2020-04-30T14:39:22.234Z'
+    - pug > pug-code-gen > pug-attrs > constantinople > babel-types > lodash:
+        patched: '2020-04-30T14:39:22.234Z'
