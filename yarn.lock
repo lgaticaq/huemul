@@ -1099,7 +1099,7 @@ camelcase@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-2.1.1.tgz#7c1d16d679a1bbe59ca02cacecfb011e201f5a1f"
 
-camelcase@^4.0.0, camelcase@^4.1.0:
+camelcase@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-4.1.0.tgz#d545635be1e33c542649c69173e5de6acfae34dd"
 
@@ -5164,11 +5164,10 @@ pascalcase@^0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/pascalcase/-/pascalcase-0.1.1.tgz#b363e55e8006ca6fe21784d2db22bd15d7917f14"
 
-password-generator@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/password-generator/-/password-generator-2.2.0.tgz#fc75cff795110923e054a5a71623433240bf5e49"
-  dependencies:
-    yargs-parser "^8.0.0"
+password-generator@2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/password-generator/-/password-generator-2.3.0.tgz#01fdf1dff804ea95022bd3ed7488b22bd4f9f058"
+  integrity sha512-HUd+TTWv8JODECycXgVcbkPuvFcaMXwOTxaLskyrHDn+u2dfIjWvzIHWQDTXn/lVuV0TDXKbYpyjVVYmbIS4jA==
 
 path-exists@^2.0.0:
   version "2.1.0"
@@ -7121,12 +7120,6 @@ yallist@^2.1.2:
 yallist@^3.0.0, yallist@^3.0.2:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.0.3.tgz#b4b049e314be545e3ce802236d6cd22cd91c3de9"
-
-yargs-parser@^8.0.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-8.1.0.tgz#f1376a33b6629a5d063782944da732631e966950"
-  dependencies:
-    camelcase "^4.1.0"
 
 yargs@~3.10.0:
   version "3.10.0"
