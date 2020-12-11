@@ -8,7 +8,7 @@
 //   None
 //
 // Commands:
-//   hubot impuestos <sueldoMensual> - Dice cuanto tendrás que pagarle all SII en la próxima operación renta
+//   hubot impuestos <sueldoMensual> - Dice cuanto tendrás que pagarle al SII en la próxima operación renta
 //
 // Author:
 //   Nicolás Gómez <ngomez@hey.com>
