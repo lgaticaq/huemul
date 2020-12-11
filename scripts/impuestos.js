@@ -2,7 +2,8 @@
 //   Dice cuanto tienes que pagarle al SII por impuestos y cotizaciones
 //
 // Dependencies:
-//   None
+//   numbertoclpformater
+//   tax-cl
 //
 // Configuration:
 //   None
