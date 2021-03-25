@@ -5783,7 +5783,7 @@ memory-pager@^1.0.2:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/memory-pager/-/memory-pager-1.5.0.tgz#d8751655d22d384682741c972f2c3d6dfa3e66b5"
 
-meow@^3.0.0, meow@^3.7.0:
+meow@^3.7.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/meow/-/meow-3.7.0.tgz#72cb668b425228290abbfa856892587308a801fb"
   dependencies:
@@ -8674,11 +8674,11 @@ strip-json-comments@^3.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-3.0.1.tgz#85713975a91fb87bf1b305cca77395e40d2a64a7"
   integrity sha512-VTyMAUfdm047mwKl+u79WIdrZxtFtn+nBxHeb844XBQ9uMNTuTHdx2hc5RiAJYqwTj3wc/xe5HLSdJSkJ+WfZw==
 
-superheroes@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/superheroes/-/superheroes-1.0.0.tgz#a00db39e2606c442e7731b8abd82865416acbe6c"
+superheroes@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/superheroes/-/superheroes-2.0.0.tgz#8e18ea99b718973afb9b76afd213c7c0e0263537"
+  integrity sha512-yTQ2cZ5G/csR1WqF6NOVs3S/FYqj8Tc8TISSsyeBqddYnshX8fkeAfGA5WV4l3/yc7F/pMWVZWfFOzJrQ8Vpng==
   dependencies:
-    meow "^3.0.0"
     unique-random-array "^1.0.0"
 
 supertap@^1.0.0:
