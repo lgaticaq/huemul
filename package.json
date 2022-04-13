@@ -99,7 +99,7 @@
     "node-fetch": "^2.6.1",
     "numbertoclpformater": "1.0.0",
     "password-generator": "2.2.0",
-    "phantom": "4.0.12",
+    "phantom": "5.0.2",
     "pug": "3.0.1",
     "raven": "2.6.2",
     "rutjs": "0.1.1",
